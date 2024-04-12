@@ -1,0 +1,24 @@
+Lab 12: Multi-step process with no access control on one step 
+
+Aim: Promote Wiener as Admin being logged in as wiener
+
+- Logged in as administrator:admin
+- Accessed admin panel at /admin
+- Upgraded and downgraded carlos 
+- the website prompts to confirm or take me back
+- Captured these requests in Burp and send to repeater
+- Logged out and Logged in as wiener
+- Found that website uses a POST request to upgrade/downgrade user
+
+POST /admin-roles HTTP/2
+Cookie: session=0FAy1s4MIaI7E7cf62z (admin cookie)
+username=carlos&action=upgrade
+
+- Got a response of the confirmation page
+- Found a hidden parameter confirmed=true
+- Removed the admin cookie and replaced it wiener's cookie
+- tried to send POST Request to upgrade wiener with that additional hidden parameter: username=wiener&action=upgrade&confirmed=true
+
+POST /admin-roles HTTP/2
+Cookie: session=OAKjhVMTMOfqKAYevaX (Wiener's Cookie)
+username=wiener&action=upgrade&confirmed=true

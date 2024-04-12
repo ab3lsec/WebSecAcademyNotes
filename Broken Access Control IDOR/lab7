@@ -1,0 +1,14 @@
+Lab 7: User ID controlled by request parameter with data leakage in redirect 
+
+Aim: Obtain Carlos API key being logged in as Wiener
+
+Methodology:
+
+- Logged in as wiener:peter
+- Redirected to Wiener's account page: /my-account?id=wiener
+- Tried to access carlos account by changing the id parameter: /my-account?id=carlos
+- this request redirected to /login page
+- Captured this request in Burp
+- The response had 302 Found redirect to /login 
+- But found a body for a redirect response.
+- The response body leaked carlos account page

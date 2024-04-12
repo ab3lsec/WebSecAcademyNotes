@@ -1,0 +1,16 @@
+Lab 11: Referer-based access control 
+
+Aim: Promote Wiener as Admin being logged in as wiener
+
+Methodology:
+
+- Logged in as administrator:admin
+- Accessed admin panel at /admin
+- Upgraded and downgraded carlos 
+- Captured these requests in Burp and send to repeater
+- Logged out and Logged in as wiener
+- Found the endpoint that upgrades user: /admin-roles?username=wiener&action=upgrade
+- Tried to send a GET request as Wiener
+- Gout a 403 Unauthorized response
+- changed the Referrer Header form web-security-academy.net/login to /admin
+- Got a 200 OK response

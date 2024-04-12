@@ -1,0 +1,18 @@
+Lab 6: User ID controlled by request parameter, with unpredictable user IDs 
+
+Aim: Obtain Carlos' API Key being logged in as Wiener
+
+Methodology:
+
+- Logged in as wiener:peter
+- redirected to wiener's account page: my-account?id=b121fbdd-3e62-46a0-bb76-6ba3b73d7413
+- This lab uses a ranndom string known as UUID to identify a user instaed of using username.
+- Mapped other opart of the web page to obtain other user's UUID.
+- In the home page, found a bunch of posts which linked the author.
+- Found a post written by carlos user.
+- captured the request: GET /post?postId=3
+- The posts has an author link to view other blogs written by the author
+- The author link revelaed the UUID of carlos: /blogs?userId=20aedd7c-4fe6-473f-b467-0e37da7ba563
+
+- Used this ID to send GET request to account page : my-account?id=20aedd7c-4fe6-473f-b467-0e37da7ba563
+- Got a 200 OK response.

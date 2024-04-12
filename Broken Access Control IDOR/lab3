@@ -1,0 +1,14 @@
+Lab 3: User Role Controlled by Request Parameter (Forgeable Cookie)
+
+Aim: Access /admin page whih is restricted for normal users
+
+Methodology:
+
+- Logged in as wiener:peter
+- Captured the Login request in Burp
+- In /login request, the server sets a cookie with Admin parameter set to false
+- The3 subsequent Request /my-account?id=wiener use this cokkie
+- lets send this request to Burp Repeater
+- An then change the path to /admin and set the Admin parameter to "True"
+- This results in a 200 OK response.
+- Then delete carlos by sending a GET request to /admin/delete?username=carlos

@@ -1,0 +1,26 @@
+Lab 10: URL-based access control can be circumvented
+
+Aim: Access the/admin and delete Carlos
+
+Methodology:
+
+- Tried to access the admin panel at: /admin
+- Got a 403 Forbidden response staing "Access denied"
+- Captured this request and send to Repeater
+- Server blocked direct access to /admin
+- Added X-Original-URL header in thr request (add a fake path in request line and actual path in this header)
+
+GET / HTTP/2
+Host: web-security-academy.net
+X-Original-Url: /admin
+
+- Bypassed and got a 200 OK for /admin page.
+- deleted user carlos at /admin/delete?username=carlos
+- X-Original-URL does'nt hold parameters 
+- Instead send /admin/delete and added parameters in the request line.
+
+GET /?username=carlos HTTP/2
+Host: web-security-academy.net
+X-Original-Url: /admin/delete
+
+- Successfully Deleted carols!!

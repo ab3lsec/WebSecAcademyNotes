@@ -1,0 +1,9 @@
+Lab 2: Unprotected Admin Functionality with Unpredicable URL
+
+Aim: Obtain the Unpredictable Admin Panel path
+
+Methodology:
+
+- Checked the Source code of the Web Page
+- Found Javascript code executing a fuction which manipulates DOM and add a admin panel button.
+- The code for this button revealed the admin panel URL

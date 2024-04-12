@@ -1,0 +1,12 @@
+Lab 5: User ID controlled by request parameter 
+
+Aim: Obtain Carlos' API key being logged in as Wiener
+
+Methodology:
+
+- Logged in as wiener:peter
+- Redirected to Wiener's account page: /my-account?id=wiener
+- Found that "id" parameter user the username.
+- Captured the request and send to Repeater.
+- Changed the id parameter vaue to carlos: /my-account?id=carlos
+- this responded with a 200 OK response. 

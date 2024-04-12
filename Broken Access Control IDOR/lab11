@@ -1,0 +1,28 @@
+Lab 11: Method-based access control can be circumvented
+
+Aim: Promote Wiener as Admin being logged in as wiener
+
+Methodology:
+
+- Logged in as administrator:admin
+- Accessed admin panel at /admin
+- Upgraded and downgraded carlos 
+- Captured these requests in Burp and send to repeater
+- Logged out and Logged in as wiener
+- Found that website uses a POST request to upgrade/downgrade user
+
+POST /admin-roles HTTP/2
+Cookie: session=0FAy1s4MIaI7E7cf62z (admin cookie)
+username=carlos&action=upgrade
+
+- Removed the admin cookie and replaced it wiener's cookie
+- tried to send POST Request to upgrade wiener: username=wiener&action=upgrade
+- Got a 401 Unauthorized response
+
+- Change the method type from POST to GET
+
+GET /admin-roles?username=wiener&action=upgrade HTTP/2
+Host: web-security-academy.net
+Cookie: session=OAKjhVMTMOfqKAYevaX (Wiener's Cookie)
+
+- Got a 200 OK response

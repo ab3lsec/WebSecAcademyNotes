@@ -1,0 +1,18 @@
+Lab 8: User ID controlled by request parameter with password disclosure
+
+Aim: Obtain the password of Administrator and delete Carlos being logged in as wiener
+
+Methodology:
+
+- Logged in as wiener:peter
+- Redirected to Wiener's Account page: my-account?id=wiener
+- captured this in Burp and Send to repeater
+- Changed the id parameter to administrator: my-account?id=administrator
+- 200 OK Obtained administrator Account page.
+- Found password in hidden format.
+- Used the developer tools to inspect the form field.
+- The password input tag reveal the plaintext password!!
+- Logged out of wiener
+- Logged in as administrator
+- Send a GET request to get dmin panel at: /admin
+- Deleted Carlos: GET /admin/delete?username=carlos HTTP/2

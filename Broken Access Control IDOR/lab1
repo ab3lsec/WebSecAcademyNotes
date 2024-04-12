@@ -1,0 +1,8 @@
+Lab 1: Unprotected Admin Functionality
+
+Aim : Obtain the Admin Panel path 
+
+Methodology:
+
+Access the /robots.txt file
+Obtain the Admin panel path /administrator-panel

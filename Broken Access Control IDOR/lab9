@@ -1,0 +1,18 @@
+Lab 9: Insecure direct object references
+
+Aim: Obtain the password of Carlosas a Not-Logged-in user
+
+Methodology:
+
+- Mapped different functionalities on the web page
+- Found a Live chat fuctionality at: /chat
+- /chat allowed to send message to Hal Pine and also got responses.
+- /chat also allowed to download transcript: /download-transcript/2.txt
+- Captured it in burp and send to repeater
+- Tried to download transcript again: GET /download-transcript/3.txt HTTP/2
+- Found that these are files stored on server side named in a incrementing number format.
+- Since it started downloading form 2.txt
+- Tried sending a request to download 1.txt: GET /download-transcript/1.txt HTTP/2
+- 1.txt revealed a previos chart history of some user.
+- Revealed the password of carlos.
+- Used this password to login as carlos!!
