@@ -17,7 +17,7 @@ username=carlos&action=upgrade
 
 - Removed the admin cookie and replaced it wiener's cookie
 - tried to send POST Request to upgrade wiener: username=wiener&action=upgrade
-- Got a 401 Unauthorized response
+- Got a 401 Unauthorized response.
 
 - Change the method type from POST to GET
 
